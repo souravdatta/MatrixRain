@@ -12,16 +12,19 @@ public class RainLine {
   
   public RainLine(int x) {
     this.x = x;
-    reset();
+    reset(true);
   }
   
   public void update() {
-    if ((this.y - this.len / 2 * 10) > height) reset();
+    if ((this.y - this.len / 2 * 10) > height) reset(false);
     y += speed;
   }
   
-  public void reset() {
-    this.y = 0;
+  public void reset(boolean randY) {
+    if (randY)
+      this.y = (int)random(20, 100);
+    else
+      this.y = 0;
     this.speed = (int)random(4, 20);
     this.len = (int)random(100, 400);
     if ((int)random(1, 100) >= 70) {
