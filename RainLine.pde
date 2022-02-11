@@ -35,8 +35,10 @@ public class RainLine {
   public void draw() {
     if (this.showing) {
       fill(255);
+      textSize(18);
       text(buffer.charAt((int)random(0, buffer.length())), x, y);
       fill(10, 255, 10);
+      textSize(16);
       for (int i = 1; i < this.len; i += 10) {
         text(buffer.charAt((int)random(0, buffer.length())), x, y - i);
       }
